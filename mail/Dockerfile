@@ -18,6 +18,7 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client=10.5.8-r0 \
     nginx=1.18.0-r13 \ 
+    php7-cli=7.4.14-r0 \
     php7-fpm=7.4.14-r0 \
     php7-imap=7.4.14-r0 \
     php7-session=7.4.14-r0 \
