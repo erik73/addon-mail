@@ -16,24 +16,24 @@ ARG BUILD_VERSION
 
 # Setup base
 RUN apk add --no-cache \
-    mariadb-client=10.5.8-r0 \
-    nginx=1.18.0-r13 \ 
-    php7-cli=7.4.14-r0 \
-    php7-fpm=7.4.14-r0 \
-    php7-imap=7.4.14-r0 \
-    php7-session=7.4.14-r0 \
-    php7-json=7.4.14-r0 \
-    php7-opcache=7.4.14-r0 \
-    php7-mbstring=7.4.14-r0 \
-    php7-mysqli=7.4.14-r0 \
-    php7-pdo_mysql=7.4.14-r0 \
-    postfix=3.5.9-r0 \
-    postfix-mysql=3.5.9-r0 \
-    dovecot=2.3.13-r0 \
-    dovecot-lmtpd=2.3.13-r0 \
-    dovecot-mysql=2.3.13-r0 \
-    dovecot-pigeonhole-plugin=2.3.13-r0 \
-    rspamd-client=2.7-r0 \
+    mariadb-client \
+    nginx \ 
+    php7-fpm \
+    php7-cli \
+    php7-imap \
+    php7-session \
+    php7-json \
+    php7-opcache \
+    php7-mbstring \
+    php7-mysqli \
+    php7-pdo_mysql \
+    postfix \
+    postfix-mysql \
+    dovecot \
+    dovecot-lmtpd \
+    dovecot-mysql \
+    dovecot-pigeonhole-plugin \
+    rspamd-client \
     && mkdir /var/www/postfixadmin \
     && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.3.tar.gz" \
         | tar zxvf - -C /var/www/postfixadmin --strip-components=1; \
