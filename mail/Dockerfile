@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     php7-fpm=7.4.14-r0 \
     php7-imap=7.4.14-r0 \
     php7-session=7.4.14-r0 \
-    php7-json7.4.14-r0 \
+    php7-json=7.4.14-r0 \
     php7-opcache=7.4.14-r0 \
     php7-mbstring=7.4.14-r0 \
     php7-mysqli=7.4.14-r0 \
