@@ -84,8 +84,8 @@ jobs:
         uses: actions/checkout@v2.3.4
       - name: 🚀 Run Shellcheck
         uses: ludeeus/action-shellcheck@1.0.0
-        env: -e SC2086
-          SHELLCHECK_OPTS: -s bash
+        env:
+          SHELLCHECK_OPTS: -s bash -e SC2086
 
   lint-yamllint:
     name: YAMLLint
