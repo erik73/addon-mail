@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: Mailserver
+# Runs the Nginx Postfix server
+# ==============================================================================
+
+bashio::log.info "Starting Postfix...."
+exec /usr/libexec/postfix/master -d

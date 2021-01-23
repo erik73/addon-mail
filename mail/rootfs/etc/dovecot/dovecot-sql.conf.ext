@@ -1,0 +1,12 @@
+# Query to get a list of all usernames.
+#iterate_query = SELECT username AS user FROM users
+driver = mysql
+connect = host=core-mariadb dbname=postfixadmin user=postfixadmin password=postfixadmin
+default_pass_scheme = MD5-CRYPT
+iterate_query = SELECT username AS user FROM mailbox
+user_query = SELECT CONCAT('/var/mail/vmail/',maildir) AS home, \
+  CONCAT('maildir:/var/mail/vmail/',maildir) AS mail, \
+  102 AS uid, 105 AS gid, CONCAT('*:bytes=',quota) AS quota_rule \
+  FROM mailbox WHERE username = '%u' AND active = 1
+password_query = SELECT username AS user,password FROM mailbox \
+  WHERE username = '%u' AND active='1'

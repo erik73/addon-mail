@@ -1,0 +1,38 @@
+{
+  "name": "Mailserver",
+  "version": "0.5.1",
+  "slug": "mailserver",
+  "description": "Complete mail server solution for Home Assistant",
+  "url": "https://github.com/erik73/hassio-addons",
+  "arch": ["aarch64", "amd64", "armv7", "i386"],
+  "stage": "experimental",
+  "startup": "application",
+  "init": false,
+  "ingress": true,
+  "panel_icon": "mdi:email",
+  "boot": "auto",
+  "map": ["ssl"],
+  "services": ["mysql:need"],
+  "host_network": true,
+  "hassio_api": true,
+  "hassio_role": "default",
+  "options": {
+    "my_hostname": "mydomain.no-ip.com",
+    "domain_name": "mydomain.no-ip.com",
+    "admin_user": "admin",
+    "admin_password": null,
+    "letsencrypt_certs": false,
+    "enable_mailfilter": false
+  },
+  "schema": {
+    "my_hostname": "str",
+    "domain_name": "str",
+    "admin_user": "str",
+    "admin_password": "str",
+    "letsencrypt_certs": "bool",
+    "enable_mailfilter": "bool",
+    "smtp_relayhost": "str?",
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
+  },
+  "image": "ehilton73/mailserver-{arch}"
+}
