@@ -1,5 +1,5 @@
 {
-  "name": "Mailserver",
+  "name": "mail",
   "version": "dev",
   "slug": "mailserver",
   "description": "Complete mail server solution for Home Assistant",
