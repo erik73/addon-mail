@@ -53,6 +53,8 @@ SOFTWARE.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [commits-shield]: https://img.shields.io/github/commit-activity/y/erik73/addon-mail.svg
 [commits]: https://github.com/erik73/addon-mail/commits/main
 [github-actions-shield]: https://github.com/erik73/addon-mail/workflows/CI/badge.svg
