@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Mailserver
+# Home Assistant Add-on: Mailserver
 
 ![Project Stage][project-stage-shield]
 
@@ -11,7 +11,8 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-Postfix/Dovecot mailserver with Postfixadmin web interface...
+A Postfix/Dovecot mailserver for Home Assistant
+with Postfixadmin web interface...
 
 ## About
 
