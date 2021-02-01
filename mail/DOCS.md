@@ -13,6 +13,24 @@ This addon is experimental, and provides a mailserver for your domain.
 It is also possible to configure additional email domains and accounts in the Postfixadmin
 web interface.
 
+The following ports are used by this addon:
+
+smtp: port 25, 465 and 587
+imap(s): 993
+
+If you are brave, and want to expose the mail server to Internet:
+
+To recieve mail from the Internet, the SMTP ports have to be added for redirection
+in your router. The necessary MX and A records will have to be registered in DNS.
+If you want to be able to check emails from outside of your network the IMAPS port
+will also have to be forwarded.
+
+The default setup will use self signed certificates created by Dovecot during
+the initial setup. It is OK for testing, but "real" certificates should be used.
+
+The config option "letsencrypt_certs" will, is set to "true", use the
+fullchain.pem and privkey.pem in the /ssl directory in Home Assistant.
+
 ## Installation
 
 Follow these steps to get the add-on installed on your system:
@@ -77,19 +95,20 @@ database is created.
 
 If you use the Let´s Encrypt add-on, and have certs installed in the /ssl
 folder of your HA instance.
-Yhis option will use those certificates for the SMTP and IMAP/POP3 services.
+Yhis option will use those certificates for the SMTP and IMAP services.
 
 #### Option: `enable_mailfilter` (required)
 
 This enables communication with the optional Mailfilter add-on in this repository.
 It will enable Postfix to scan emails for SPAM and viruses. Please note that
 the virus scanning requires a lot of memory, and 4-8 GB mommory is recommended.
+Virus scanning is disabled by default in the Mailfilter add-on.
 
 #### Option: `smtp_relayhost` (optional)
 
 Use this optional setting to use a realy server for outgoing emails. ISP:s often
 block outgoing emails from your network. In that case, you can often use your
-ISP:s SMTP relay host to bypassthis limitation.
+ISP:s SMTP relay host to bypass this limitation.
 
 ## Support
 
