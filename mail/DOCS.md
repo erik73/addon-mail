@@ -75,15 +75,15 @@ database is created.
 
 #### Option: `letsencrypt_certs` (required)
 
-If you use the Let´s Encrypt add-on, and have certs installed in the /ssl folder of
-your HA instance.
+If you use the Let´s Encrypt add-on, and have certs installed in the /ssl
+folder of your HA instance.
 Yhis option will use those certificates for the SMTP and IMAP/POP3 services.
 
 #### Option: `enable_mailfilter` (required)
 
 This enables communication with the optional Mailfilter add-on in this repository.
-It will enable Postfix to scan emails for SPAM and viruses. Please note that the virus
-scanning requires a lot of memory, and 4-8 GB mommory is recommended.
+It will enable Postfix to scan emails for SPAM and viruses. Please note that
+the virus scanning requires a lot of memory, and 4-8 GB mommory is recommended.
 
 #### Option: `smtp_relayhost` (optional)
 
