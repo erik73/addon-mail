@@ -44,35 +44,40 @@ letsencrypt_certs: false
 enable_mailfilter: false
 ```
 
-Please note: During the startup of the add-on, a database is created in the MariaDB add-on.
-There is currently not possible to change user credentials or domain_name after the database is created.
-The only way to change these options is to drop the postfixadmin datbase and restart the add-on.
-Use the phpMyadmin add-on to drop the database.
+Please note: During the startup of the add-on, a database is created in the
+MariaDB add-on. There is currently not possible to change user credentials or
+domain_name after the database is created.
+The only way to change these options is to drop the postfixadmin datbase and
+restart the add-on. Use the phpMyadmin add-on to drop the database.
 
 ### Option: `my_hostname` (required)
 
-The hostname of your mailserver. It should correspond to the A-record you have in your DNS.
+The hostname of your mailserver. It should correspond to the A-record you
+have in your DNS.
 
 #### Option: `domain_name` (required)
 
-This is the name of the domain you want to recieve mail from. Additional domain can be added in the
-postfixadmin-interface.
+This is the name of the domain you want to recieve mail from. Additional domain
+can be added in the postfixadmin-interface.
 
 #### Option: `admin_user` (required)
 
-The name of the admin user in postfixadmin. To log in to the web interface you have to use FQDN.
-For example: admin@mydomain.no-ip.com.
-In the current version of the add-on, this can not be changed once the database is created.
+The name of the admin user in postfixadmin. To log in to the web interface
+you have to use FQDN. For example: admin@mydomain.no-ip.com.
+In the current version of the add-on, this can not be changed once the database
+is created.
 
 #### Option: `admin_password` (required)
 
 The password for the admin_user.
-In the current version of the add-on, this can not be changed once the database is created.
+In the current version of the add-on, this can not be changed once the
+database is created.
 
 #### Option: `letsencrypt_certs` (required)
 
-If you use the Let´s Encrypt add-on, and have certs installed in the /ssl folder of your HA instance
-this option will use those certificates for the SMTP and IMAP/POP3 services.
+If you use the Let´s Encrypt add-on, and have certs installed in the /ssl folder of
+your HA instance.
+Yhis option will use those certificates for the SMTP and IMAP/POP3 services.
 
 #### Option: `enable_mailfilter` (required)
 
@@ -82,9 +87,9 @@ scanning requires a lot of memory, and 4-8 GB mommory is recommended.
 
 #### Option: `smtp_relayhost` (optional)
 
-Use this optional setting to use a realy server for outgoing emails. ISP:s often block outgoing
-emails from your network. In that case, you can often use your ISP:s SMTP relay host to bypass
-this limitation.
+Use this optional setting to use a realy server for outgoing emails. ISP:s often
+block outgoing emails from your network. In that case, you can often use your
+ISP:s SMTP relay host to bypassthis limitation.
 
 ## Support
 
