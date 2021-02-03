@@ -15,13 +15,15 @@
     "25/tcp": 25,
     "465/tcp": 465,
     "587/tcp": 587,
-    "993/tcp": 993
+    "993/tcp": 993,
+    "514/tcp": 514
   },
   "ports_description": {
     "25/tcp": "SMTP",
     "465/tcp": "SMTP",
     "587/tcp": "SMTP",
-    "993/tcp": "IMAPS"
+    "993/tcp": "IMAPS",
+    "514/tcp": "syslog"
   },
   "hassio_api": true,
   "options": {
