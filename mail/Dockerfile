@@ -42,6 +42,7 @@ RUN apk add --no-cache \
         mkdir -p /etc/postfix/sql \
     && rm -f -r \
         /tmp/* \
+    && mkdir -p /run/systemd\journal \
     && S6_ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="x86"; fi \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
