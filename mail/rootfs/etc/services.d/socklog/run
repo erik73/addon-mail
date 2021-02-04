@@ -2,4 +2,4 @@
 
 fdmove -c 2 1
 s6-envuidgid -D 32768:32768 nobody
-socklog unix /run/systemd/journal
+socklog unix /run/systemd/journal/dev-log
