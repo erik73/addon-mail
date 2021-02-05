@@ -24,6 +24,11 @@ chmod +x /usr/local/bin/quota-warning.sh
 chown vmail:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
+# Add symbolic link to make logging work in older supervisor
+if ! bashio::fs.file_exists '/dev/log'; then
+ln -s /run/systemd/journal/dev-log /dev/log
+fi
+
 # Ensures the data of the Postfix and Dovecot is stored outside of the container
 if ! bashio::fs.directory_exists '/data/mail'; then
     mkdir -p /data/mail
