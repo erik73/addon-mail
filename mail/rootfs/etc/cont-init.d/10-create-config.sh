@@ -25,7 +25,7 @@ chown vmail:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
-ln -sf /run/systemd/journal/dev-log /dev/log
+ln -sf /run/systemd/journal/dev-log /dev/log 2>/dev/null
 
 # Ensures the data of the Postfix and Dovecot is stored outside of the container
 if ! bashio::fs.directory_exists '/data/mail'; then
