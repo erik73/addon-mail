@@ -25,7 +25,7 @@ chown vmail:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
-if ! readlink -e /dev/log >/dev/null 2>&1
+if ! readlink /dev/log >/dev/null 2>&1
 then
 ln -s /run/systemd/journal/dev-log /dev/log
 fi
