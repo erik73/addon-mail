@@ -26,7 +26,7 @@ chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
 readlink /dev/log || error_code=$?
-if [[ ${error_code} -ne 1 ]]; then
+if [[ ${error_code} -eq 1 ]]; then
 ln -sf /run/systemd/journal/dev-log /dev/log
 fi
 
