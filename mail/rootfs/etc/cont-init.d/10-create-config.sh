@@ -25,9 +25,9 @@ chown vmail:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
-readlink /dev/log || error_code=$?
-if [[ ${error_code} -ne 0 ]]; then
-ln -sf /run/systemd/journal/dev-log /dev/log
+if ! readlink -e /dev/log >/dev/null 2>&1
+then
+ln -s /run/systemd/journal/dev-log /dev/log
 fi
 
 # Ensures the data of the Postfix and Dovecot is stored outside of the container
