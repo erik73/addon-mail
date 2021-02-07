@@ -9,20 +9,23 @@ Postfix/Dovecot mailserver with Postfixadmin web interface...
 
 Important: This addon requires that the MariaDB add-on is installed and running!
 
-This addon is experimental, and provides a mailserver for your domain.
-It is also possible to configure additional email domains and accounts in the Postfixadmin
-web interface.
+This add-on is experimental, and provides a mailserver for your domain.
+It is also possible to configure additional email domains and accounts in the
+Postfix Admin web interface.
 
 The following ports are used by this addon:
 
 smtp: port 25, 465 and 587
 imap(s): 993
 
-If you are brave, and want to expose the mail server to Internet:
+Is is possible to change these in the Network section of the configuration.
+
+If you are brave, you may want to expose the mail server to Internet.
+See intructions below:
 
 To recieve mail from the Internet, the SMTP ports have to be added for redirection
 in your router. The necessary MX and A records will have to be registered in DNS.
-If you want to be able to check emails from outside of your network the IMAPS port
+If you want to be able to check emails from outside of your network the IMAP port
 will also have to be forwarded.
 
 The default setup will use self signed certificates created by Dovecot during
@@ -65,7 +68,7 @@ enable_mailfilter: false
 Please note: During the startup of the add-on, a database is created in the
 MariaDB add-on. There is currently not possible to change user credentials or
 domain_name after the database is created.
-The only way to change these options is to drop the postfixadmin datbase and
+The only way to change these options is to drop the Postfix Admin datbase and
 restart the add-on. Use the phpMyadmin add-on to drop the database.
 
 ### Option: `my_hostname` (required)
@@ -75,8 +78,8 @@ have in your DNS.
 
 #### Option: `domain_name` (required)
 
-This is the name of the domain you want to recieve mail from. Additional domain
-can be added in the postfixadmin-interface.
+This is the name of the domain you want to recieve mail from.
+Additional domains can be added in the postfixadmin-interface.
 
 #### Option: `admin_user` (required)
 
@@ -93,20 +96,22 @@ database is created.
 
 #### Option: `letsencrypt_certs` (required)
 
-If you use the Let´s Encrypt add-on, and have certs installed in the /ssl
-folder of your HA instance.
-Yhis option will use those certificates for the SMTP and IMAP services.
+If you use the Let´s Encrypt add-on or by any other means have certs
+installed in the /ssl folder of your HA instance, this options will
+use those certificates for the SMTP and IMAP services.
+
+The files should be named fullchain.pem and privkey.pem.
 
 #### Option: `enable_mailfilter` (required)
 
 This enables communication with the optional Mailfilter add-on in this repository.
 It will enable Postfix to scan emails for SPAM and viruses. Please note that
-the virus scanning requires a lot of memory, and 4-8 GB mommory is recommended.
+the virus scanning requires a lot of memory, and 4-8 GB is recommended.
 Virus scanning is disabled by default in the Mailfilter add-on.
 
 #### Option: `smtp_relayhost` (optional)
 
-Use this optional setting to use a realy server for outgoing emails. ISP:s often
+Use this optional setting to use a relay server for outgoing emails. ISP:s often
 block outgoing emails from your network. In that case, you can often use your
 ISP:s SMTP relay host to bypass this limitation.
 
