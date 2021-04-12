@@ -58,6 +58,12 @@ sed -i "s/relayhost =/relayhost = [${relayhost}]/g" /etc/postfix/main.cf
 fi
 
 if bashio::config.has_value "smtp_relayhost_credentials"; then
+cat << EOF >> /etc/postfix/main.cf
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+smtp_sasl_password_maps =
+EOF
 sed -i "s/smtp_sasl_password_maps =/smtp_sasl_password_maps = static:${relaycredentials}/g" /etc/postfix/main.cf
 fi
 
