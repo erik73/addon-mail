@@ -117,9 +117,11 @@ ISP:s SMTP relay host to bypass this limitation.
 It is good practice to enter the hostname within brackets. It disables MX
 lookups for that host, and is recommended. You can also specify a port to use.
 For example:
+
 ```yaml
 smtp_realyhost: [smtp.relay.com]587
 ```
+
 The above example means port 587 is used for submission.
 If your ISP requires a username and password, use the option below.
 
