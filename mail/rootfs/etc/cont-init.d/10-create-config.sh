@@ -59,6 +59,7 @@ fi
 
 if bashio::config.has_value "smtp_relayhost_credentials"; then
 sed -i "s/smtp_sasl_password_maps =/smtp_sasl_password_maps = static:${relaycredentials}/g" /etc/postfix/main.cf
+fi
 
 if bashio::config.true "letsencrypt_certs"; then
 bashio::log.info "Let's Encrypt certs will be used..."
