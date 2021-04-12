@@ -19,6 +19,7 @@ postfixadmin=$(bashio::config 'admin_user')
 postfixpassword=$(bashio::config 'admin_password')
 myhostname=$(bashio::config 'my_hostname')
 domain=$(bashio::config 'domain_name')
+relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 
 chmod +x /usr/local/bin/quota-warning.sh
 chown vmail:dovecot /etc/dovecot/users
@@ -53,8 +54,11 @@ sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
 sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
 
 if bashio::config.has_value "smtp_relayhost"; then
-sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
+sed -i "s/relayhost =/relayhost = [${relayhost}]/g" /etc/postfix/main.cf
 fi
+
+if bashio::config.has_value "smtp_relayhost_credentials"; then
+sed -i "s/smtp_sasl_password_maps =/smtp_sasl_password_maps = static:${relaycredentials}/g" /etc/postfix/main.cf
 
 if bashio::config.true "letsencrypt_certs"; then
 bashio::log.info "Let's Encrypt certs will be used..."

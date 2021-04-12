@@ -39,6 +39,7 @@
     "letsencrypt_certs": "bool",
     "enable_mailfilter": "bool",
     "smtp_relayhost": "str?",
+    "smtp_relayhost_credentials": "str?",
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
   }
 }
