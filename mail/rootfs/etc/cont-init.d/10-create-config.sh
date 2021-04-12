@@ -54,7 +54,7 @@ sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
 sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
 
 if bashio::config.has_value "smtp_relayhost"; then
-sed -i "s/relayhost =/relayhost = [${relayhost}]/g" /etc/postfix/main.cf
+sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
 fi
 
 if bashio::config.has_value "smtp_relayhost_credentials"; then
