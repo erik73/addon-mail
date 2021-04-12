@@ -114,6 +114,22 @@ Virus scanning is disabled by default in the Mailfilter add-on.
 Use this optional setting to use a relay server for outgoing emails. ISP:s often
 block outgoing emails from your network. In that case, you can often use your
 ISP:s SMTP relay host to bypass this limitation.
+It is good practice to enter the hostname within brackets. It disables MX
+lookups for that host, and is recommended. You can also specify a port to use.
+For example:
+
+```yaml
+smtp_realyhost: [smtp.relay.com]587
+```
+
+The above example means port 587 is used for submission.
+If your ISP requires a username and password, use the option below.
+
+#### Option: `smtp_relayhost_credentials` (optional)
+
+Use this optional setting to use authentication with the relay server you specified.
+The correct syntax is username:password and you get this info from your provider.
+Only use this option if you know user credentials are really needed to relay.
 
 ## Support
 
