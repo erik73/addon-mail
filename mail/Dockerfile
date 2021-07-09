@@ -35,7 +35,7 @@ RUN apk add --no-cache \
     dovecot-pigeonhole-plugin \
     rspamd-client \
     && mkdir /var/www/postfixadmin \
-    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.8.tar.gz" \
+    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.9.tar.gz" \
         | tar zxvf - -C /var/www/postfixadmin --strip-components=1; \
         mkdir -p /var/www/postfixadmin/templates_c; \
         chown -R nginx: /var/www/postfixadmin; \
