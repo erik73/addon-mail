@@ -15,7 +15,6 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # Setup base
-ARG BUILD_ARCH=amd64
 RUN apk add --no-cache \
     mariadb-client \
     nginx \ 
@@ -35,13 +34,6 @@ RUN apk add --no-cache \
     dovecot-mysql \
     dovecot-pigeonhole-plugin \
     rspamd-client \
-    && S6_VERSION="3.1.1.2" \
-    && S6_ARCH="${BUILD_ARCH}" \
-    && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="x86"; fi \
-    && if [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
-    && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="i686"; \
-    elif [ "${BUILD_ARCH}" = "amd64" ]; then S6_ARCH="x86_64"; \
-    elif [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
