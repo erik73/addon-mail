@@ -15,6 +15,7 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # Setup base
+ARG BUILD_ARCH=amd64
 RUN apk add --no-cache \
     mariadb-client \
     nginx \ 
