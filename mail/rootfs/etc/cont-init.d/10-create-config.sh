@@ -22,7 +22,7 @@ domain=$(bashio::config 'domain_name')
 relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 
 chmod +x /usr/local/bin/quota-warning.sh
-chown vmail:dovecot /etc/dovecot/users
+chown vmail:vmail /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
