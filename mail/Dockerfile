@@ -55,7 +55,6 @@ RUN apk add --no-cache \
     && S6_ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="x86"; fi \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
-\
 # Copy data for add-on
 COPY rootfs /
 
