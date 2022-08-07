@@ -36,7 +36,7 @@ RUN apk add --no-cache \
     rspamd-client \
     && S6_VERSION="3.1.1.2" \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
-        tar -C / -Jxpf - \
+        | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
     && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.11.tar.gz" \
         | tar zxvf - -C /var/www/postfixadmin --strip-components=1; \
