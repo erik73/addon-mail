@@ -18,15 +18,15 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client \
     nginx \ 
-    php7-fpm \
-    php7-cli \
-    php7-imap \
-    php7-session \
-    php7-json \
-    php7-opcache \
-    php7-mbstring \
-    php7-mysqli \
-    php7-pdo_mysql \
+    php8-fpm \
+    php8-cli \
+    php8-imap \
+    php8-session \
+    php8-json \
+    php8-opcache \
+    php8-mbstring \
+    php8-mysqli \
+    php8-pdo_mysql \
     postfix \
     postfix-mysql \
     dovecot \
