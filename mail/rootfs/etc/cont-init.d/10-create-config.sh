@@ -35,6 +35,9 @@ fi
 if ! bashio::fs.directory_exists '/data/mail'; then
     mkdir -p /data/mail
 fi
+
+adduser -S -D -H syslog
+adduser -S -D -H sysllog
 addgroup vmail
 rm -fr /var/mail
 ln -s /data/mail /var/mail
