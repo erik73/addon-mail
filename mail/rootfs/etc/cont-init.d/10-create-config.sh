@@ -38,7 +38,6 @@ fi
 
 adduser -S -D -H syslog
 adduser -S -D -H sysllog
-touch /run/systemd/journal/dev-log
 addgroup vmail
 rm -fr /var/mail
 ln -s /data/mail /var/mail
