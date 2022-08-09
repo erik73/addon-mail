@@ -48,6 +48,7 @@ chown -R nginx: /var/www/postfixadmin; \
 
 # Modify config files
 sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /etc/s6-overlay/s6-rc.d/syslogd/run
+sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /run/service/syslogd/run.user
 sed -i 's/^user .*$/user = '$username'/' /etc/postfix/sql/*.cf
 sed -i 's/^password .*$/password = '$password'/' /etc/postfix/sql/*.cf
 sed -i 's/^hosts .*$/hosts = '$host'/' /etc/postfix/sql/*.cf
