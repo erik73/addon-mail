@@ -5,8 +5,6 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ENV S6_READ_ONLY_ROOT=1
-
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
