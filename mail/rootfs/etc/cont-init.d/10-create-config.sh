@@ -20,6 +20,7 @@ postfixpassword=$(bashio::config 'admin_password')
 myhostname=$(bashio::config 'my_hostname')
 domain=$(bashio::config 'domain_name')
 relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
+messagesizelimit=$(bashio::config 'message_size_limit')
 
 chmod +x /usr/local/bin/quota-warning.sh
 chown vmail:dovecot /etc/dovecot/users
@@ -63,6 +64,7 @@ sed -i "s/postmaster_address = postmaster/postmaster_address = postmaster@${doma
 sed -i "s/From: postmaster/From: postmaster@${domain}/g" /usr/local/bin/quota-warning.sh
 sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
 sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
+sed -i "s/message_size_limit = /message_size_limit = ${messagesizelimit}/g" /etc/postfix/main.cf
 sed -i "s/        header('X-Frame-Options: DENY');/        header('X-Frame-Options: SAMEORIGIN');/g" /var/www/postfixadmin/common.php
 
 if bashio::config.has_value "smtp_relayhost"; then

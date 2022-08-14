@@ -30,7 +30,8 @@
     "admin_user": "admin",
     "admin_password": null,
     "letsencrypt_certs": false,
-    "enable_mailfilter": false
+    "enable_mailfilter": false,
+    "message_size_limit": 51200000
   },
   "schema": {
     "my_hostname": "str",
@@ -41,6 +42,7 @@
     "enable_mailfilter": "bool",
     "smtp_relayhost": "str?",
     "smtp_relayhost_credentials": "str?",
-    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
+    "message_size_limit": "int"
   }
 }
