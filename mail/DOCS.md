@@ -63,6 +63,7 @@ admin_user: admin
 admin_password: admin
 letsencrypt_certs: false
 enable_mailfilter: false
+message_size_limit: 10
 ```
 
 Please note: During the startup of the add-on, a database is created in the
@@ -101,6 +102,13 @@ installed in the /ssl folder of your HA instance, this options will
 use those certificates for the SMTP and IMAP services.
 
 The files should be named fullchain.pem and privkey.pem.
+
+#### Option: `message_size_limit` (required)
+
+Configures the max size of a single message/mail in MB.
+Messages larger than this will get rejected.
+If you want the best compatibility with common cloud mail providers, use 50 MB.
+Default: 10
 
 #### Option: `enable_mailfilter` (required)
 
