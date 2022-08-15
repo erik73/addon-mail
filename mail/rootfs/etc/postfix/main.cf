@@ -49,4 +49,4 @@ smtpd_recipient_restrictions = permit_sasl_authenticated,permit_mynetworks,rejec
 recipient_delimiter = +
 propagate_unmatched_extensions =
 
-message_size_limit = 25600000
+message_size_limit =
