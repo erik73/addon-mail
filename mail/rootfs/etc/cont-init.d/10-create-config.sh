@@ -108,7 +108,7 @@ php8 /var/www/postfixadmin/public/upgrade.php
 /var/www/postfixadmin/scripts/postfixadmin-cli domain add ${domain}
 fi
 
-php8 /var/www/postfixadmin/public/upgrade.php
+php81 /var/www/postfixadmin/public/upgrade.php
 
 newaliases
 
