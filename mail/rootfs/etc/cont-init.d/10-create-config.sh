@@ -103,7 +103,7 @@ if ! bashio::var.has_value "${database}"; then
         -u "${username}" -p"${password}" \
         -h "${host}" -P "${port}" \
             < /etc/postfix/createdb.sql
-php8 /var/www/postfixadmin/public/upgrade.php
+php81 /var/www/postfixadmin/public/upgrade.php
 /var/www/postfixadmin/scripts/postfixadmin-cli admin add ${postfixadmin}@${domain} --superadmin 1 --active 1 --password ${postfixpassword} --password2 ${postfixpassword}
 /var/www/postfixadmin/scripts/postfixadmin-cli domain add ${domain}
 fi
