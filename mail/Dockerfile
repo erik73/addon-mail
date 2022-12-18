@@ -38,7 +38,7 @@ RUN apk add --no-cache \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
-    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.12.tar.gz" \
+    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.13.tar.gz" \
         | tar zxvf - -C /var/www/postfixadmin --strip-components=1; \
         mkdir -p /var/www/postfixadmin/templates_c; \
         chown -R nginx: /var/www/postfixadmin; \
