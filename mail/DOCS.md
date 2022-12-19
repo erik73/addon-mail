@@ -113,14 +113,19 @@ Default: 10
 #### Option: `enable_mailfilter` (required)
 
 This enables communication with the optional Mailfilter add-on in this repository.
-It will enable Postfix to scan emails for SPAM and viruses. Please note that
-the virus scanning requires a lot of memory, and 4-8 GB is recommended.
+It will enable Postfix to scan emails for SPAM and viruses, and includes optional
+DKIM signing. To be able to successfully send email from your host, without risking
+having your outgoing emails being rejected or classified as spam, DKIM signing
+is a must. You also have to configure your DNS server to provide SPF and DMARC.
+If DKIM, SPF and DMARC sounds too complicated, use the smtp_relay option.
+
+The virus scanning requires a lot of memory, and 4-8 GB is recommended.
 Virus scanning is disabled by default in the Mailfilter add-on.
 
 #### Option: `smtp_relayhost` (optional)
 
 Use this optional setting to use a relay server for outgoing emails. ISP:s often
-block outgoing emails from your network. In that case, you can often use your
+block outgoing emails from your network. In that case, you can use your
 ISP:s SMTP relay host to bypass this limitation.
 It is good practice to enter the hostname within brackets. It disables MX
 lookups for that host, and is recommended. You can also specify a port to use.
@@ -148,7 +153,6 @@ You could [open an issue here][issue] GitHub.
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[conf]: http://developer.telldus.com/wiki/TellStick_conf
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
-[issue]: https://github.com/erik73/addon-tellsticklive/issues
+[issue]: https://github.com/erik73/addon-mail/issues
 [repository]: https://github.com/erik73/hassio-addons
