@@ -122,7 +122,6 @@ If DKIM, SPF and DMARC sounds too complicated, use the smtp_relay option.
 The virus scanning requires a lot of memory, and 4-8 GB is recommended.
 Virus scanning is disabled by default in the Mailfilter add-on.
 
-
 #### Option: `smtp_relayhost` (optional)
 
 Use this optional setting to use a relay server for outgoing emails. ISP:s often
