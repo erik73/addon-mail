@@ -16,24 +16,24 @@ ARG BUILD_VERSION
 
 # Setup base
 RUN apk add --no-cache \
-    mariadb-client \
-    nginx \ 
-    php81-fpm \
-    php81-cli \
-    php81-imap \
-    php81-session \
-    php81-json \
-    php81-opcache \
-    php81-mbstring \
-    php81-mysqli \
-    php81-pdo_mysql \
-    postfix \
-    postfix-mysql \
-    dovecot \
-    dovecot-lmtpd \
-    dovecot-mysql \
-    dovecot-pigeonhole-plugin \
-    rspamd-client \
+    mariadb-client=10.6.12-r0 \
+    nginx=1.22.1-r0 \ 
+    php81-fpm=8.1.17-r0 \
+    php81-cli=8.1.17-r0 \
+    php81-imap=8.1.17-r0 \
+    php81-session=8.1.17-r0 \
+    php81-json=8.1.17-r0 \
+    php81-opcache=8.1.17-r0 \
+    php81-mbstring=8.1.17-r0 \
+    php81-mysqli=8.1.17-r0 \
+    php81-pdo_mysql=8.1.17-r0 \
+    postfix=3.7.4-r0 \
+    postfix-mysql=3.7.4-r0 \
+    dovecot=2.3.20-r7 \
+    dovecot-lmtpd=2.3.20-r7 \
+    dovecot-mysql=2.3.20-r7 \
+    dovecot-pigeonhole-plugin=2.3.20-r7 \
+    rspamd-client=3.5-r1 \
     && S6_VERSION="3.1.3.0" \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
