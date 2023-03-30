@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-ARG S6_OVERLAY_VERSION="v3.1.3.0"
+ARG S6_OVERLAY_VERSION="v3.1.4.1"
 
 # Build arguments
 ARG BUILD_ARCH
