@@ -4,6 +4,7 @@ FROM ${BUILD_FROM}
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ARG S6_OVERLAY_VERSION="v3.1.3.0"
 
 # Build arguments
 ARG BUILD_ARCH
@@ -34,8 +35,7 @@ RUN apk add --no-cache \
     dovecot-mysql=2.3.20-r7 \
     dovecot-pigeonhole-plugin=2.3.20-r7 \
     rspamd-client=3.5-r1 \
-    && S6_VERSION="3.1.3.0" \
-    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
+    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
     && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-3.3.13.tar.gz" \
