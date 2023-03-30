@@ -20,10 +20,8 @@ RUN apk add --no-cache \
     mariadb-client=10.6.12-r0 \
     nginx=1.22.1-r0 \ 
     php81-fpm=8.1.17-r0 \
-    php81-cli=8.1.17-r0 \
     php81-imap=8.1.17-r0 \
     php81-session=8.1.17-r0 \
-    php81-json=8.1.17-r0 \
     php81-opcache=8.1.17-r0 \
     php81-mbstring=8.1.17-r0 \
     php81-mysqli=8.1.17-r0 \
