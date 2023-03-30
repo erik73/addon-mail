@@ -17,6 +17,15 @@
     },
     {
       "fileMatch": ["/Dockerfile$"],
+      "matchStrings": [
+        "ARG S6_OVERLAY_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "loose",
+      "depNameTemplate": "just-containers/s6-overlay"
+    },
+    {
+      "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
