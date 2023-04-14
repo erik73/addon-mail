@@ -22,7 +22,7 @@ RUN apk add --no-cache \
     nginx=1.22.1-r0 \ 
     php81=8.1.18-r0 \
     php81-fpm=8.1.18-r0 \
-    php81-imap=8.1.17-r0 \
+    php81-imap=8.1.18-r0 \
     php81-session=8.1.17-r0 \
     php81-opcache=8.1.17-r0 \
     php81-mbstring=8.1.17-r0 \
