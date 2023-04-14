@@ -26,7 +26,7 @@ RUN apk add --no-cache \
     php81-session=8.1.17-r0 \
     php81-opcache=8.1.17-r0 \
     php81-mbstring=8.1.18-r0 \
-    php81-mysqli=8.1.17-r0 \
+    php81-mysqli=8.1.18-r0 \
     php81-pdo_mysql=8.1.17-r0 \
     postfix=3.7.4-r0 \
     postfix-mysql=3.7.4-r0 \
