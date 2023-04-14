@@ -20,7 +20,7 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client=10.6.12-r0 \
     nginx=1.22.1-r0 \ 
-    php81=8.1.17-r0 \
+    php81=8.1.18-r0 \
     php81-fpm=8.1.17-r0 \
     php81-imap=8.1.17-r0 \
     php81-session=8.1.17-r0 \
