@@ -50,6 +50,12 @@
       "automerge": true
     },
     {
+      "groupName": "PHP",
+      "matchDatasources": ["repology"],
+      "matchDepPatterns": ["alpine.*/php.*"],
+      "automerge": true
+    },
+    {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"]
     },
