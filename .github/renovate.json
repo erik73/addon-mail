@@ -56,6 +56,18 @@
       "automerge": true
     },
     {
+      "groupName": "Postfix",
+      "matchDatasources": ["repology"],
+      "matchDepPatterns": ["alpine.*/postfix.*"],
+      "automerge": true
+    },
+    {
+      "groupName": "Dovecot",
+      "matchDatasources": ["repology"],
+      "matchDepPatterns": ["alpine.*/dovecot.*"],
+      "automerge": true
+    },
+    {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"]
     },
