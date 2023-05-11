@@ -20,14 +20,14 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client=10.6.12-r0 \
     nginx=1.22.1-r0 \ 
-    php81=8.1.18-r0 \
-    php81-fpm=8.1.18-r0 \
-    php81-imap=8.1.18-r0 \
-    php81-session=8.1.18-r0 \
-    php81-opcache=8.1.18-r0 \
-    php81-mbstring=8.1.18-r0 \
-    php81-mysqli=8.1.18-r0 \
-    php81-pdo_mysql=8.1.18-r0 \
+    php81=8.1.19-r1 \
+    php81-fpm=8.1.19-r1 \
+    php81-imap=8.1.19-r1 \
+    php81-session=8.1.19-r1 \
+    php81-opcache=8.1.19-r1 \
+    php81-mbstring=8.1.19-r1 \
+    php81-mysqli=8.1.19-r1 \
+    php81-pdo_mysql=8.1.19-r1 \
     postfix=3.7.4-r0 \
     postfix-mysql=3.7.4-r0 \
     dovecot=2.3.20-r7 \
