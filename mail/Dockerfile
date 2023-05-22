@@ -19,7 +19,7 @@ ARG BUILD_VERSION
 # Setup base
 RUN apk add --no-cache \
     mariadb-client=10.11.3-r0 \
-    nginx=1.24.0-r3 \ 
+    nginx=1.24.0-r4 \ 
     php81=8.1.19-r2 \
     php81-fpm=8.1.19-r2 \
     php81-imap=8.1.19-r2 \
