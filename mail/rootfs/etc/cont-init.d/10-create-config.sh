@@ -67,6 +67,8 @@ sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
 sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
 sed -i "s/message_size_limit =/message_size_limit = ${messagesizelimit}/g" /etc/postfix/main.cf
 sed -i "s/        header('X-Frame-Options: DENY');/        header('X-Frame-Options: SAMEORIGIN');/g" /var/www/postfixadmin/common.php
+sed -i 's/exec php/exec php81/g' /var/www/postfixadmin/scripts/postfixadmin-cli
+
 
 if bashio::config.has_value "smtp_relayhost"; then
 sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
