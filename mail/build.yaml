@@ -1,6 +1,6 @@
 ---
 build_from:
-  aarch64: ghcr.io/erik73/base/aarch64:3.0.24
-  amd64: ghcr.io/erik73/base/amd64:3.0.24
-  armv7: ghcr.io/erik73/base/armv7:3.0.24
-  i386: ghcr.io/erik73/base/i386:3.0.24
+  aarch64: ghcr.io/erik73/base/aarch64:3.0.25
+  amd64: ghcr.io/erik73/base/amd64:3.0.25
+  armv7: ghcr.io/erik73/base/armv7:3.0.25
+  i386: ghcr.io/erik73/base/i386:3.0.25
