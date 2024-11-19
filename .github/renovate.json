@@ -5,8 +5,9 @@
   "labels": ["dependencies", "no-stale"],
   "commitMessagePrefix": "⬆️",
   "commitMessageTopic": "{{depName}}",
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$", "/build.yaml$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -16,6 +17,7 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
         "ARG S6_OVERLAY_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
@@ -25,6 +27,7 @@
       "depNameTemplate": "just-containers/s6-overlay"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
         "ARG POSTFIXADMIN_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
@@ -34,6 +37,7 @@
       "depNameTemplate": "postfixadmin/postfixadmin"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -52,20 +56,20 @@
     {
       "groupName": "PHP",
       "matchDatasources": ["repology"],
-      "matchDepPatterns": ["alpine.*/php.*"],
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": ["/alpine.*/php.*/"]
     },
     {
       "groupName": "Postfix",
       "matchDatasources": ["repology"],
-      "matchDepPatterns": ["alpine.*/postfix.*"],
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": ["/alpine.*/postfix.*/"]
     },
     {
       "groupName": "Dovecot",
       "matchDatasources": ["repology"],
-      "matchDepPatterns": ["alpine.*/dovecot.*"],
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": ["/alpine.*/dovecot.*/"]
     },
     {
       "groupName": "Add-on base image",
