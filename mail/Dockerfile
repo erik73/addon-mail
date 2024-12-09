@@ -34,7 +34,7 @@ RUN apk add --no-cache \
     dovecot-lmtpd=2.3.21.1-r0 \
     dovecot-mysql=2.3.21.1-r0 \
     dovecot-pigeonhole-plugin=2.3.21.1-r0 \
-    rspamd-client=3.8.4-r0 \
+    rspamd-client=3.10.2-r1 \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
