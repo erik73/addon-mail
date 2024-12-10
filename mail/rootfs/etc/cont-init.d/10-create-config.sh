@@ -97,6 +97,7 @@ database=$(\
         -u "${username}" -p"${password}" \
         -h "${host}" -P "${port}" \
         --skip-column-names \
+        --skip-ssl \
         -e "SHOW DATABASES LIKE 'postfixadmin';"
 )
 
@@ -104,6 +105,7 @@ if ! bashio::var.has_value "${database}"; then
     bashio::log.info "Creating database for postfixadmin"
     mysql \
         -u "${username}" -p"${password}" \
+        --skip-ssl \
         -h "${host}" -P "${port}" \
             < /etc/postfix/createdb.sql
 php82 /var/www/postfixadmin/public/upgrade.php
