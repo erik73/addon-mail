@@ -115,7 +115,7 @@ fi
 
 #Run the DB upgrade script and set the superadmin user and password on startup
 php82 /var/www/postfixadmin/public/upgrade.php
-/var/www/postfixadmin/scripts/postfixadmin-cli admin update ${postfixadmin}@${domain} --superadmin 1 --active 1 --password ${postfixpassword} --password2 ${postfixpassword}
+/var/www/postfixadmin/scripts/postfixadmin-cli admin add ${postfixadmin}@${domain} --superadmin 1 --active 1 --password ${postfixpassword} --password2 ${postfixpassword}
 
 newaliases
 
