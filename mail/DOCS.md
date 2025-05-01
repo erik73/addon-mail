@@ -67,10 +67,11 @@ message_size_limit: 10
 ```
 
 Please note: During the startup of the add-on, a database is created in the
-MariaDB add-on. There is currently not possible to change user credentials or
-domain_name after the database is created.
-The only way to change these options is to drop the Postfix Admin datbase and
-restart the add-on. Use the phpMyadmin add-on to drop the database.
+MariaDB add-on. There is currently not possible to change user name or
+domain_name after the database is created. The password can be changed.
+The only way to change user and domain name is to drop the Postfix Admin
+datbase and restart the add-on.
+Use the phpMyadmin add-on to drop the database.
 
 ### Option: `my_hostname` (required)
 
@@ -92,8 +93,8 @@ is created.
 #### Option: `admin_password` (required)
 
 The password for the admin_user.
-In the current version of the add-on, this can not be changed once the
-database is created.
+This option can be changed after initial install. A handy feature if you forget
+your password!
 
 #### Option: `letsencrypt_certs` (required)
 
