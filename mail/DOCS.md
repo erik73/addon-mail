@@ -92,8 +92,8 @@ is created.
 #### Option: `admin_password` (required)
 
 The password for the admin_user.
-In the current version of the add-on, this can not be changed once the
-database is created.
+This option can be changed after initial install. A handy feature if you forget
+your password!
 
 #### Option: `letsencrypt_certs` (required)
 
