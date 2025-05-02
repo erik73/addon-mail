@@ -67,7 +67,7 @@ sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
 sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
 sed -i "s/message_size_limit =/message_size_limit = ${messagesizelimit}/g" /etc/postfix/main.cf
 sed -i "s/        header('X-Frame-Options: DENY');/        header('X-Frame-Options: SAMEORIGIN');/g" /var/www/postfixadmin/common.php
-sed -i 's/exec php/exec php82/g' /var/www/postfixadmin/scripts/postfixadmin-cli
+sed -i 's/exec php/exec php84/g' /var/www/postfixadmin/scripts/postfixadmin-cli
 
 
 if bashio::config.has_value "smtp_relayhost"; then
@@ -108,12 +108,12 @@ if ! bashio::var.has_value "${database}"; then
         --skip-ssl \
         -h "${host}" -P "${port}" \
             < /etc/postfix/createdb.sql
-php82 /var/www/postfixadmin/public/upgrade.php
+php84 /var/www/postfixadmin/public/upgrade.php
 /var/www/postfixadmin/scripts/postfixadmin-cli admin add ${postfixadmin}@${domain} --superadmin 1 --active 1 --password ${postfixpassword} --password2 ${postfixpassword}
 /var/www/postfixadmin/scripts/postfixadmin-cli domain add ${domain}
 fi
 
-php82 /var/www/postfixadmin/public/upgrade.php
+php84 /var/www/postfixadmin/public/upgrade.php
 
 newaliases
 
