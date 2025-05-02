@@ -1,11 +1,11 @@
-ARG BUILD_FROM=ghcr.io/erik73/base/amd64:4.0.9
+ARG BUILD_FROM=ghcr.io/erik73/base:4.0.9
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG S6_OVERLAY_VERSION="v3.2.0.2"
-ARG POSTFIXADMIN_VERSION="3.3.13"
+ARG POSTFIXADMIN_VERSION="3.3.15"
 
 # Build arguments
 ARG BUILD_ARCH
@@ -20,14 +20,14 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client=11.4.5-r0 \
     nginx=1.26.3-r0 \ 
-    php82=8.2.28-r0 \
-    php82-fpm=8.2.28-r0 \
-    php82-imap=8.2.28-r0 \
-    php82-session=8.2.28-r0 \
-    php82-opcache=8.2.28-r0 \
-    php82-mbstring=8.2.28-r0 \
-    php82-mysqli=8.2.28-r0 \
-    php82-pdo_mysql=8.2.28-r0 \
+    php84=8.4.5-r0 \
+    php84-fpm=8.4.5-r0 \
+    php84-pecl-imap=1.0.3-r0 \
+    php84-session=8.4.5-r0 \
+    php84-opcache=8.4.5-r0 \
+    php84-mbstring=8.4.5-r0 \
+    php84-mysqli=8.4.5-r0 \
+    php84-pdo_mysql=8.4.5-r0 \
     postfix=3.9.4-r0 \
     postfix-mysql=3.9.4-r0 \
     dovecot=2.3.21.1-r0 \
