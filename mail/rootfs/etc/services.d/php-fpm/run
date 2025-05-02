@@ -15,4 +15,4 @@ password=$(bashio::services "mysql" "password")
 port=$(bashio::services "mysql" "port")
 username=$(bashio::services "mysql" "username")
 
-exec php-fpm82 --nodaemonize
+exec php-fpm84 --nodaemonize
