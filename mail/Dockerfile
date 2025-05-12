@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/erik73/base:4.0.9
+ARG BUILD_FROM=ghcr.io/erik73/base:4.0.10
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
