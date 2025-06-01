@@ -30,10 +30,10 @@ RUN apk add --no-cache \
     php84-pdo_mysql=8.4.7-r0 \
     postfix=3.9.4-r0 \
     postfix-mysql=3.9.4-r0 \
-    dovecot=2.3.21.1-r0 \
-    dovecot-lmtpd=2.3.21.1-r0 \
-    dovecot-mysql=2.3.21.1-r0 \
-    dovecot-pigeonhole-plugin=2.3.21.1-r0 \
+    dovecot=2.4.1-r2 \
+    dovecot-lmtpd=2.4.1-r2 \
+    dovecot-mysql=2.4.1-r2 \
+    dovecot-pigeonhole-plugin=2.4.1-r2 \
     rspamd-client=3.11.1-r2 \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
