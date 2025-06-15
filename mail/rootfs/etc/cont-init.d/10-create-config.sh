@@ -24,6 +24,7 @@ relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 messagesizelimit=$(bc <<< "$(bashio::config 'message_size_limit' '10') * 1024000")
 
 chmod +x /usr/local/bin/quota-warning.sh
+mkdir -p /etc/dovecot/users
 chown vmail:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
@@ -44,7 +45,7 @@ addgroup vmail
 rm -fr /var/mail
 ln -s /data/mail /var/mail
 mkdir -p /var/mail/vmail/sieve/global
-chown -R vmail:postdrop /var/mail
+chown -R vmail:vmail /var/mail
 mkdir -p /var/www/postfixadmin/templates_c; \
 chown -R nginx: /var/www/postfixadmin; \
 
@@ -60,7 +61,9 @@ sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-l
 sed -i 's/^user .*$/user = '$username'/' /etc/postfix/sql/*.cf
 sed -i 's/^password .*$/password = '$password'/' /etc/postfix/sql/*.cf
 sed -i 's/^hosts .*$/hosts = '$host'/' /etc/postfix/sql/*.cf
-sed -i 's/^connect .*$/connect = host='$host' dbname=postfixadmin user='$username' password='$password'/' /etc/dovecot/*.ext
+sed -i 's/^  mysql_host .*$/  mysql_host = '$host'/' /etc/dovecot/conf.d/auth-sql.conf.ext
+sed -i 's/^  mysql_user .*$/  mysql_user = '$username'/' /etc/dovecot/conf.d/auth-sql.conf.ext
+sed -i 's/^  mysql_password .*$/  mysql_password = '$password'/' /etc/dovecot/conf.d/auth-sql.conf.ext
 sed -i "s/postmaster_address = postmaster/postmaster_address = postmaster@${domain}/g" /etc/dovecot/conf.d/20-lmtp.conf
 sed -i "s/From: postmaster/From: postmaster@${domain}/g" /usr/local/bin/quota-warning.sh
 sed -i "s/@domain/@${domain}/g" /var/www/postfixadmin/config.local.php
@@ -68,7 +71,6 @@ sed -i "s/myhostname =/myhostname = ${myhostname}/g" /etc/postfix/main.cf
 sed -i "s/message_size_limit =/message_size_limit = ${messagesizelimit}/g" /etc/postfix/main.cf
 sed -i "s/        header('X-Frame-Options: DENY');/        header('X-Frame-Options: SAMEORIGIN');/g" /var/www/postfixadmin/common.php
 sed -i 's/exec php/exec php84/g' /var/www/postfixadmin/scripts/postfixadmin-cli
-
 
 if bashio::config.has_value "smtp_relayhost"; then
 sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
@@ -84,12 +86,17 @@ EOF
 sed -i "s/smtp_sasl_password_maps =/smtp_sasl_password_maps = static:${relaycredentials}/g" /etc/postfix/main.cf
 fi
 
+if bashio::config.false "letsencrypt_certs"; then
+bashio::log.info "Self-signed certs will be used..."
+/usr/local/bin/mkcert.sh
+fi
+
 if bashio::config.true "letsencrypt_certs"; then
 bashio::log.info "Let's Encrypt certs will be used..."
 sed -i 's~^smtpd_tls_cert.*$~smtpd_tls_cert_file = /ssl/fullchain.pem~g' /etc/postfix/main.cf
 sed -i 's~^smtpd_tls_key.*$~smtpd_tls_key_file = /ssl/privkey.pem~g' /etc/postfix/main.cf
-sed -i 's~^ssl_cert.*$~ssl_cert = </ssl/fullchain.pem~g' /etc/dovecot/conf.d/10-ssl.conf
-sed -i 's~^ssl_key.*$~ssl_key = </ssl/privkey.pem~g' /etc/dovecot/conf.d/10-ssl.conf
+sed -i 's~^ssl_server_cert_file.*$~ssl_server_cert_file = /ssl/fullchain.pem~g' /etc/dovecot/conf.d/10-ssl.conf
+sed -i 's~^ssl_server_key_file.*$~ssl_server_key_file = /ssl/privkey.pem~g' /etc/dovecot/conf.d/10-ssl.conf
 fi
 
 database=$(\
@@ -148,7 +155,7 @@ require ["vnd.dovecot.pipe", "copy", "imapsieve"];
 pipe :copy "rspamc" ["-h", "32b8266a-mailfilter:11334", "learn_ham"];
 EOF
 
-chown -R vmail:postdrop /var/mail/
+chown -R vmail:vmail /var/mail/
 
 fi
 
@@ -166,9 +173,6 @@ milter_protocol = 6
 milter_mail_macros = i {mail_addr} {client_addr} {client_name} {auth_authen}
 milter_default_action = accept
 smtpd_milters = inet:32b8266a-mailfilter:11332
-non_smtpd_milters = inet:32b8266a-mailfilter:11332
 EOF
 
-    sed -i 's/^  mail.*/& sieve/' /etc/dovecot/conf.d/20-lmtp.conf
-    sed -i 's/^  mail.*/& imap_sieve/' /etc/dovecot/conf.d/20-imap.conf
 fi
