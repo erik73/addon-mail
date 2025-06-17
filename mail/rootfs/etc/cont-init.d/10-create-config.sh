@@ -23,9 +23,15 @@ domain=$(bashio::config 'domain_name')
 relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 messagesizelimit=$(bc <<< "$(bashio::config 'message_size_limit' '10') * 1024000")
 
+adduser -S -D -H syslog
+adduser -S -D -H sysllog
+addgroup -g 1000 vmail
+adduser -D -G vmail -H -h /var/mail/domains -u 1000 -s /sbin/nolgin vmailuser
+
+
 chmod +x /usr/local/bin/quota-warning.sh
 mkdir -p /etc/dovecot/users
-chown vmail:dovecot /etc/dovecot/users
+chown vmailuser:dovecot /etc/dovecot/users
 chmod 440 /etc/dovecot/users
 
 # Add symbolic link to make logging work in older supervisor
@@ -39,13 +45,10 @@ if ! bashio::fs.directory_exists '/data/mail'; then
     mkdir -p /data/mail
 fi
 
-adduser -S -D -H syslog
-adduser -S -D -H sysllog
-addgroup vmail
 rm -fr /var/mail
 ln -s /data/mail /var/mail
 mkdir -p /var/mail/vmail/sieve/global
-chown -R vmail:vmail /var/mail
+chown -R vmailuser:vmail /var/mail
 mkdir -p /var/www/postfixadmin/templates_c; \
 chown -R nginx: /var/www/postfixadmin; \
 
@@ -155,7 +158,7 @@ require ["vnd.dovecot.pipe", "copy", "imapsieve"];
 pipe :copy "rspamc" ["-h", "32b8266a-mailfilter:11334", "learn_ham"];
 EOF
 
-chown -R vmail:vmail /var/mail/
+chown -R vmailuser:vmail /var/mail/
 
 fi
 
