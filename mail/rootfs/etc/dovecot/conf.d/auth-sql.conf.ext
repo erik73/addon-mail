@@ -19,7 +19,7 @@ passdb sql {
 userdb sql {
   userdb_sql_query = SELECT CONCAT('/var/mail/vmail/',maildir) AS home, \
     CONCAT('maildir:/var/mail/vmail/',maildir) AS mail, \
-    102 AS uid, 1000 AS gid, CONCAT(quota, 'B') AS quota_storage_size \
+    1000 AS uid, 1000 AS gid, CONCAT(quota, 'B') AS quota_storage_size \
     FROM mailbox WHERE username = '%{user}' AND active = 1
   userdb_sql_iterate_query = SELECT username AS user FROM mailbox
 }
