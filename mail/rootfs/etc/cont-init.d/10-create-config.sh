@@ -150,7 +150,7 @@ EOF
 
   cat << EOF >> /var/mail/vmail/sieve/global/report-spam.sieve
 require ["vnd.dovecot.pipe", "copy", "imapsieve"];
-pipe :copy "rspamc" ["-h", "32b8266a-mailfilter:11334", "learn_ham"];
+pipe :copy "rspamc" ["-h", "32b8266a-mailfilter:11334", "learn_spam"];
 EOF
 
   cat << EOF >> /var/mail/vmail/sieve/global/report-ham.sieve
