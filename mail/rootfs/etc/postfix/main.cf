@@ -28,7 +28,6 @@ virtual_alias_maps = mysql:/etc/postfix/sql/mysql_virtual_alias_maps.cf, mysql:/
 virtual_mailbox_maps = mysql:/etc/postfix/sql/mysql_virtual_mailbox_maps.cf, mysql:/etc/postfix/sql/mysql_virtual_alias_domain_mailbox_maps.cf
 virtual_transport = lmtp:unix:private/dovecot-lmtp
 local_transport = virtual
-smtpd_use_tls=yes
 smtpd_tls_auth_only = yes
 smtp_tls_security_level = may
 smtpd_tls_security_level = may
@@ -45,10 +44,8 @@ broken_sasl_auth_clients = yes
 smtpd_sasl_auth_enable = yes
 smtpd_relay_before_recipient_restrictions=yes
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
-smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
-# smtpd_end_of_data_restrictions = check_policy_service unix:private/quota-status
-
-
+smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated
+smtpd_end_of_data_restrictions = check_policy_service unix:private/quota-status
 recipient_delimiter = +
 propagate_unmatched_extensions =
 
