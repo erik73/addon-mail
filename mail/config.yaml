@@ -49,3 +49,4 @@ schema:
   smtp_relayhost_credentials: str?
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   message_size_limit: int
+  mynetworks: str?

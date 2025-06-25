@@ -22,6 +22,7 @@ myhostname=$(bashio::config 'my_hostname')
 domain=$(bashio::config 'domain_name')
 relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 messagesizelimit=$(bc <<< "$(bashio::config 'message_size_limit' '10') * 1024000")
+mynetworks=$(bashio::config 'mynetworks')
 
 adduser -S -D -H syslog
 adduser -S -D -H sysllog
@@ -178,4 +179,11 @@ milter_default_action = accept
 smtpd_milters = inet:32b8266a-mailfilter:11332
 EOF
 
+fi
+
+if bashio::config.has_value "mynetworks"; then
+cat << EOF >> /etc/postfix/main.cf
+mynetworks =
+EOF
+sed -i "s#mynetworks =#mynetworks = ${mynetworks}#g" /etc/postfix/main.cf
 fi
