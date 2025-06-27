@@ -17,7 +17,7 @@ The following ports are used by this addon:
 
 smtp: port 25, 465 and 587
 imap(s): 993
-managesieve: 4190 
+managesieve: 4190
 (ManageSieve enables users to create their own Sieve scripts with from a
 mail client that supports the Sieve protocol)
 
