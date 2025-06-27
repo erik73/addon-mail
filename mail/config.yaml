@@ -24,6 +24,7 @@ ports:
   465/tcp: 465
   587/tcp: 587
   993/tcp: 993
+  4190/tcp: 4190
 ports_description:
   25/tcp: SMTP
   465/tcp: SMTP
