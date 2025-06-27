@@ -20,11 +20,17 @@ imap(s): 993
 
 Is is possible to change these in the Network section of the configuration.
 
+A note on port 465: While it was once the standard for secure SMTP submissions,
+it has been superseded by port 587. Although port 465 is still supported by some
+older email systems and clients, most modern setups now use port 587, as it is
+considered more robust and flexible.
+
 If you are brave, you may want to expose the mail server to Internet.
 See intructions below:
 
 To recieve mail from the Internet, the SMTP ports have to be added for redirection
-in your router. The necessary MX and A records will have to be registered in DNS.
+in your router, except for port 465 (See the note above regarding port 465).
+The necessary MX and A records will have to be registered in DNS.
 If you want to be able to check emails from outside of your network the IMAP port
 will also have to be forwarded.
 
@@ -133,7 +139,7 @@ lookups for that host, and is recommended. You can also specify a port to use.
 For example:
 
 ```yaml
-smtp_relayhost: [smtp.relay.com]:587
+[smtp.relay.com]:587
 ```
 
 The above example means port 587 is used for submission.
@@ -144,6 +150,17 @@ If your ISP requires a username and password, use the option below.
 Use this optional setting to use authentication with the relay server you specified.
 The correct syntax is username:password and you get this info from your provider.
 Only use this option if you know user credentials are really needed to relay.
+
+#### Option: `mynetworks` (optional)
+
+Use this optional setting if you want to allow specific networks or IP
+addresses to relay email through this server. This option should only be
+used for internal networks or hosts. Before using it, be sure to read the Postfix
+documentation to understand the security implications of setting this option.
+
+```yaml
+192.168.1.0/24 192.168.3.12
+```
 
 ## Support
 
