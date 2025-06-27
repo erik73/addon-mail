@@ -165,7 +165,6 @@ fi
 
 if bashio::config.false "enable_mailfilter"; then
   rm -f -r \
-  /etc/dovecot/conf.d/20-managesieve.conf \
   /etc/dovecot/conf.d/90-sieve.conf
 fi
 
