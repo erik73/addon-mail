@@ -22,7 +22,7 @@ Is is possible to change these in the Network section of the configuration.
 
 A note on port 465: While it was once the standard for secure SMTP submissions,
 it has been superseded by port 587. Although port 465 is still supported by some
-older email systems and clients, most modern setups now use port 587, as it is 
+older email systems and clients, most modern setups now use port 587, as it is
 considered more robust and flexible.
 
 If you are brave, you may want to expose the mail server to Internet.
@@ -154,15 +154,15 @@ Only use this option if you know user credentials are really needed to relay.
 #### Option: `mynetworks` (optional)
 
 Use this optional setting if you want to allow specific networks or IP
-addresses to relay email through this server. This option should only be 
+addresses to relay email through this server. This option should only be
 used for internal networks or hosts. Before using it, be sure to read the Postfix
 documentation to understand the security implications of setting this option.
 
 ```yaml
 192.168.1.0/24 192.168.3.12
 ```
-## Support
 
+## Support
 
 Got questions?
 
