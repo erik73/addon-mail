@@ -29,6 +29,7 @@ ports_description:
   465/tcp: SMTP
   587/tcp: SMTP
   993/tcp: IMAPS
+  4190/tcp: ManageSieve
 hassio_api: true
 options:
   my_hostname: mydomain.no-ip.com
