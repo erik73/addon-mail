@@ -18,9 +18,7 @@ panel_icon: mdi:email
 map:
   - ssl
 services:
-  - mailserver:provide
   - mysql:need
-startup: services
 ports:
   25/tcp: 25
   465/tcp: 465
