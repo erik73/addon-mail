@@ -39,9 +39,9 @@ RUN apk add --no-cache \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
     && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/postfixadmin-${POSTFIXADMIN_VERSION}.tar.gz" \
-        | tar zxvf - -C /var/www/postfixadmin --strip-components=1; \
-        mkdir -p /var/www/postfixadmin/templates_c; \
-        chown -R nginx: /var/www/postfixadmin; \
+        | tar zxvf - -C /var/www/postfixadmin --strip-components=1 && \
+        mkdir -p /var/www/postfixadmin/templates_c && \
+        chown -R nginx: /var/www/postfixadmin && \
         mkdir -p /etc/postfix/sql \
     && rm -f -r \
         /tmp/* \
