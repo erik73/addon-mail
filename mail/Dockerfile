@@ -28,8 +28,8 @@ RUN apk add --no-cache \
     php84-mbstring=8.4.10-r0 \
     php84-mysqli=8.4.10-r0 \
     php84-pdo_mysql=8.4.10-r0 \
-    postfix \
-    postfix-mysql \
+    postfix=3.10.2-r0 \
+    postfix-mysql=3.10.2-r0 \
     dovecot=2.4.1-r2 \
     dovecot-lmtpd=2.4.1-r2 \
     dovecot-mysql=2.4.1-r2 \
