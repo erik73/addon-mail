@@ -31,6 +31,7 @@ RUN apk add --no-cache \
     postfix=3.10.3-r0 \
     postfix-mysql=3.10.3-r0 \
     dovecot=2.4.1-r2 \
+    dovecot-pop3d=2.4.1-r2 \
     dovecot-lmtpd=2.4.1-r2 \
     dovecot-mysql=2.4.1-r2 \
     dovecot-pigeonhole-plugin=2.4.1-r2 \
