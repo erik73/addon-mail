@@ -9,7 +9,7 @@ Postfix/Dovecot mailserver with Postfixadmin web interface...
 
 Important: This addon requires that the MariaDB add-on is installed and running!
 
-This add-on is experimental, and provides a mailserver for your domain.
+This add-on provides a mailserver for your domain.
 It is also possible to configure additional email domains and accounts in the
 Postfix Admin web interface.
 
@@ -17,11 +17,13 @@ The following ports are used by this addon:
 
 smtp: port 25, 465 and 587
 imap(s): 993
+pop3(s): 995 (Not enabled by default)
 managesieve: 4190
 (ManageSieve enables users to create their own Sieve scripts with a
 mail client that supports the Sieve protocol)
 
 Is is possible to change these in the Network section of the configuration.
+To enable pop3s the port has to be activated in the network section.
 
 A note on port 465: While it was once the standard for secure SMTP submissions,
 it has been superseded by port 587. Although port 465 is still supported by some
