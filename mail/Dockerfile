@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG S6_OVERLAY_VERSION="v3.2.1.0"
-ARG POSTFIXADMIN_VERSION="3.3.15"
+ARG POSTFIXADMIN_VERSION="v3.3.16"
 
 # Build arguments
 ARG BUILD_ARCH
@@ -39,7 +39,7 @@ RUN apk add --no-cache \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
-    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/v${POSTFIXADMIN_VERSION}.tar.gz" \
+    && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/${POSTFIXADMIN_VERSION}.tar.gz" \
         | tar -zxvf - -C /var/www/postfixadmin --strip-components=1 && \
         mkdir -p /var/www/postfixadmin/templates_c && \
         chown -R nginx: /var/www/postfixadmin && \
