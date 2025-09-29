@@ -54,6 +54,7 @@ chown -R vmailuser:vmail /var/mail
 mkdir -p /var/www/postfixadmin/templates_c
 chown -R nginx: /var/www/postfixadmin
 # Run Postfix install.sh for composer to setup postfixadmin
+chmod +x /var/www/postfixadmin/install.sh
 /var/www/postfixadmin/install.sh
 
 # Modify config files for S6-logging
