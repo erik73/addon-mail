@@ -163,6 +163,12 @@ addresses to relay email through this server. This option should only be
 used for internal networks or hosts. Before using it, be sure to read the Postfix
 documentation to understand the security implications of setting this option.
 
+#### Option: `mail_max_userip_connections` (optional)
+
+Use this optional setting if you want to change the maximum number of IMAP
+connections allowed for a user from each IP address. The standard setting
+is to allow 10 connections.
+
 ```yaml
 192.168.1.0/24 192.168.3.12
 ```
