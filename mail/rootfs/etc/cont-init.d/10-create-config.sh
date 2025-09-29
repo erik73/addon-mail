@@ -22,6 +22,7 @@ myhostname=$(bashio::config 'my_hostname')
 domain=$(bashio::config 'domain_name')
 relaycredentials=$(bashio::config 'smtp_relayhost_credentials')
 messagesizelimit=$(bc <<< "$(bashio::config 'message_size_limit' '10') * 1024000")
+maxuserip=$(bashio::config 'mail_max_userip_connections')
 mynetworks=$(bashio::config 'mynetworks')
 
 adduser -S -D -H syslog
@@ -78,6 +79,10 @@ sed -i 's/exec php/exec php84/g' /var/www/postfixadmin/scripts/postfixadmin-cli
 
 if bashio::config.has_value "smtp_relayhost"; then
 sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
+fi
+
+if bashio::config.has_value "mail_max_userip_connections"; then
+sed -i "s/mail_max_userip_connections =/mail_max_userip_connections = ${maxuserip}/g" /etc/dovecot/conf.d/20-imap.conf
 fi
 
 if bashio::config.has_value "smtp_relayhost_credentials"; then
