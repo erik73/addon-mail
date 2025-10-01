@@ -45,9 +45,6 @@ RUN apk add --no-cache \
         mkdir -p /var/www/postfixadmin/templates_c && \
         chown -R nginx: /var/www/postfixadmin && \
         mkdir -p /etc/postfix/sql \
-    && cd /var/www/postfixadmin \
-        chmod +x install.sh \
-        install.sh \
     && rm -f -r \
         /tmp/* \
     && mkdir -p /run/systemd/journal
