@@ -82,7 +82,7 @@ sed -i "s/relayhost =/relayhost = ${relayhost}/g" /etc/postfix/main.cf
 fi
 
 if bashio::config.has_value "mail_max_userip_connections"; then
-sed -i "s/mail_max_userip_connections =/mail_max_userip_connections = ${maxuserip}/g" /etc/dovecot/conf.d/20-imap.conf
+sed -i "s/mail_max_userip_connections = 10/mail_max_userip_connections = ${maxuserip}/g" /etc/dovecot/conf.d/20-imap.conf
 fi
 
 if bashio::config.has_value "smtp_relayhost_credentials"; then
