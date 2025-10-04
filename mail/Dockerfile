@@ -61,7 +61,7 @@ RUN apk add --no-cache \
     && rm -f -r \
         /tmp/* \
     && mkdir -p /run/systemd/journal \
-    && apk del --no-cache --purge .build-dependencies \
+    && apk del --no-cache --purge .build-dependencies
 
 # Copy data for add-on
 COPY rootfs /
