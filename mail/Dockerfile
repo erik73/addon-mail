@@ -36,18 +36,32 @@ RUN apk add --no-cache \
     dovecot-mysql=2.4.1-r2 \
     dovecot-pigeonhole-plugin=2.4.1-r2 \
     rspamd-client=3.11.1-r2 \
-    composer=2.8.10-r0 \
+    && apk add --no-cache --virtual .build-dependencies \
+        php84-phar=8.4.13-r0 \
+        php84-tokenizer=8.4.13-r0 \
+        php84-curl=8.4.13-r0 \
+        php84-sqlite3=8.4.13-r0 \
+        php84-dom=8.4.13-r0 \
+        php84-xml=8.4.13-r0 \
+        php84-xmlwriter=8.4.13-r0 \
+        php84-iconv=8.4.13-r0 \
+        php84-intl=8.4.13-r0 \
+        php84-simplexml=8.4.13-r0 \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
     && curl -L -s "https://github.com/postfixadmin/postfixadmin/archive/${POSTFIXADMIN_VERSION}.tar.gz" \
         | tar -zxvf - -C /var/www/postfixadmin --strip-components=1 && \
         mkdir -p /var/www/postfixadmin/templates_c && \
+        curl -o composer.phar https://getcomposer.org/download/latest-stable/composer.phar && \
+        php84 composer.phar install --working-dir=/var/www/postfixadmin/ --prefer-dist -n --no-dev && \
         chown -R nginx: /var/www/postfixadmin && \
+        rm composer.phar && \
         mkdir -p /etc/postfix/sql \
     && rm -f -r \
         /tmp/* \
-    && mkdir -p /run/systemd/journal
+    && mkdir -p /run/systemd/journal \
+    && apk del --no-cache --purge .build-dependencies \
 
 # Copy data for add-on
 COPY rootfs /
