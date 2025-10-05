@@ -162,16 +162,15 @@ Use this optional setting if you want to allow specific networks or IP
 addresses to relay email through this server. This option should only be
 used for internal networks or hosts. Before using it, be sure to read the Postfix
 documentation to understand the security implications of setting this option.
+```yaml
+192.168.1.0/24 192.168.3.12
+```
 
 #### Option: `mail_max_userip_connections` (optional)
 
 Use this optional setting if you want to change the maximum number of IMAP
-connections allowed for a user from each IP address. The standard setting
-is to allow 10 connections.
-
-```yaml
-192.168.1.0/24 192.168.3.12
-```
+connections allowed for a user from each IP address.
+If this setting is not set, the default Dovetcot value of 10 is used. 
 
 ## Support
 
