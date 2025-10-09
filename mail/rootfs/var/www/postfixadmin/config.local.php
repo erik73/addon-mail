@@ -1,7 +1,7 @@
 <?php
 $CONF['configured'] = true;
 
-$CONF['encrypt'] = 'md5crypt';
+$CONF['encrypt'] = 'MD5-CRYPT';
 
 $CONF['database_type'] = 'mysqli';
 $CONF['database_host'] = getenv("host");
