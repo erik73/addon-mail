@@ -35,7 +35,7 @@ RUN apk add --no-cache \
     dovecot-lmtpd=2.4.2-r1 \
     dovecot-mysql=2.4.2-r1 \
     dovecot-pigeonhole-plugin=2.4.2-r1 \
-    rspamd-client=3.11.1-r2 \
+    rspamd-client=3.14.0-r0 \
     && apk add --no-cache --virtual .build-dependencies \
         php84-phar=8.4.15-r0 \
         php84-tokenizer=8.4.15-r0 \
