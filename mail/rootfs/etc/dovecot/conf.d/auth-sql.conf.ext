@@ -8,6 +8,7 @@ mysql mariadb {
   mysql_user = postfixadmin
   mysql_password = postfixadmin
   mysql_dbname = postfixadmin
+  mysql_ssl = no
 }
 
 passdb sql {
