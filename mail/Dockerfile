@@ -20,14 +20,14 @@ ARG BUILD_VERSION
 RUN apk add --no-cache \
     mariadb-client=11.4.9-r0 \
     nginx=1.28.0-r8 \ 
-    php84=8.4.16-r0 \
-    php84-fpm=8.4.16-r0 \
+    php84=8.4.17-r0 \
+    php84-fpm=8.4.17-r0 \
     php84-pecl-imap=1.0.3-r0 \
-    php84-session=8.4.16-r0 \
-    php84-opcache=8.4.16-r0 \
-    php84-mbstring=8.4.16-r0 \
-    php84-mysqli=8.4.16-r0 \
-    php84-pdo_mysql=8.4.16-r0 \
+    php84-session=8.4.17-r0 \
+    php84-opcache=8.4.17-r0 \
+    php84-mbstring=8.4.17-r0 \
+    php84-mysqli=8.4.17-r0 \
+    php84-pdo_mysql=8.4.17-r0 \
     postfix=3.10.7-r0 \
     postfix-mysql=3.10.7-r0 \
     dovecot=2.4.2-r1 \
@@ -37,16 +37,16 @@ RUN apk add --no-cache \
     dovecot-pigeonhole-plugin=2.4.2-r1 \
     rspamd-client=3.14.0-r0 \
     && apk add --no-cache --virtual .build-dependencies \
-        php84-phar=8.4.16-r0 \
-        php84-tokenizer=8.4.16-r0 \
-        php84-curl=8.4.16-r0 \
-        php84-sqlite3=8.4.16-r0 \
-        php84-dom=8.4.16-r0 \
-        php84-xml=8.4.16-r0 \
-        php84-xmlwriter=8.4.16-r0 \
-        php84-iconv=8.4.16-r0 \
-        php84-intl=8.4.16-r0 \
-        php84-simplexml=8.4.16-r0 \
+        php84-phar=8.4.17-r0 \
+        php84-tokenizer=8.4.17-r0 \
+        php84-curl=8.4.17-r0 \
+        php84-sqlite3=8.4.17-r0 \
+        php84-dom=8.4.17-r0 \
+        php84-xml=8.4.17-r0 \
+        php84-xmlwriter=8.4.17-r0 \
+        php84-iconv=8.4.17-r0 \
+        php84-intl=8.4.17-r0 \
+        php84-simplexml=8.4.17-r0 \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
     && mkdir /var/www/postfixadmin \
