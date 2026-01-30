@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: read
+
 jobs:
   workflows:
-    uses: erik73/workflows/.github/workflows/release-drafter.yaml@main
+    uses: erik73/workflows/.github/workflows/release-drafter.yaml@978862c4ae7d4cdfb63fb3e24dbb5ae9d99c0b2f # v1.0.0
