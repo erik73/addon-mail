@@ -175,7 +175,7 @@ fi
 
 if bashio::config.true "enable_mailfilter"; then
     bashio::log.info "Mailfilter enabled."
-    bashio::log.info "Configuring connection to Mailfilter addon"
+    bashio::log.info "Configuring connection to Mailfilter app"
     cat << EOF >> /etc/postfix/main.cf
 milter_protocol = 6
 milter_mail_macros = i {mail_addr} {client_addr} {client_name} {auth_authen}

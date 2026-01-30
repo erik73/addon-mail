@@ -6,13 +6,13 @@ Postfix/Dovecot mailserver with Postfixadmin web interface...
 
 ## About
 
-Important: This addon requires that the MariaDB app is installed and running!
+Important: This app requires that the MariaDB add-on is installed and running!
 
 This app provides a mailserver for your domain.
 It is also possible to configure additional email domains and accounts in the
 Postfix Admin web interface.
 
-The following ports are used by this addon:
+The following ports are used by this app:
 
 smtp: port 25, 465 and 587
 imap(s): 993
