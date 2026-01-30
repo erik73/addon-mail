@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck disable=SC2086,SC2016
 # ==============================================================================
-# Home Assistant Add-on: Mailserver
+# Home Assistant App: Mailserver
 # Configures mailserver
 # ==============================================================================
 
