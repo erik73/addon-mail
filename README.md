@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Mailserver
+# Home Assistant App: Mailserver
 
 ![Project Stage][project-stage-shield]
 

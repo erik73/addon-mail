@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: Mailserver
+# Home Assistant App: Mailserver
 # Runs the Nginx daemon
 # ==============================================================================
 

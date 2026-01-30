@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/erik73/base:6.0.1
+ARG BUILD_FROM=ghcr.io/erik73/base:6.0.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -63,7 +63,7 @@ RUN apk add --no-cache \
     && mkdir -p /run/systemd/journal \
     && apk del --no-cache --purge .build-dependencies
 
-# Copy data for add-on
+# Copy data for app
 COPY rootfs /
 
 # Labels
