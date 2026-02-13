@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Community App: phpMyAdmin
+# Home Assistant Community App: Mailserver
 # Take down the S6 supervision tree when Nginx fails
 # ==============================================================================
 if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
