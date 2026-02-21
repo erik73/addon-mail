@@ -13,4 +13,4 @@ permissions:
 
 jobs:
   workflows:
-    uses: erik73/workflows/.github/workflows/release-drafter.yaml@d0d4c05fc6c6cdfe93f40f6a727c7370757942e5 # v1.0.6
+    uses: erik73/workflows/.github/workflows/release-drafter.yaml@0d708a724ff0548b48e5aee5252cb33af09cc6db # v1.0.10
